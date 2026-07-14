@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/fonts/Sansation-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Google Sans Code";
+  src: url("/fonts/GoogleSansCode-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --floor: #0a0a0c;
+  --panel: #15161a;
+  --hairline: rgba(169, 174, 182, 0.16);
+  --text: #f1f1ef;
+  --gold-dim: rgba(201, 162, 75, 0.35);
+  --gold: #c9a24b;
+  --text-muted: #8a8d93;
+  --font-sans: "Sansation", "Segoe UI", sans-serif;
+  --font-mono: "Google Sans Code", "Source Code Pro", monospace;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+:hover {
+  transition: all 0.5s;
+}
+.mirrow {
+  -webkit-box-reflect: below
+    20% -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(transparent),
+      to(rgba(241, 241, 239, 0.5))
+    );
+}
+@media (max-width: 30rem) {
+  .mirrow {
+    -webkit-box-reflect: below
+    60% -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(transparent),
+      to(rgba(241, 241, 239, 0.5))
+    );
+  }
+
+}
+
+/* .navbar {
+   animation: aparecer  linear;
+  animation: fixed 1s;
+  animation-timeline: view();
+  animation-range: cover 0%;
+} */
+
+/* @keyframes fixed {
+  0% {
+    position: static;
+  }
+  100% {
+    position: fixed;
+  }
+} */
+
+@layer utilities {
+  .gradient-radial {
+    opacity: 15%;
+    background: radial-gradient(
+      circle farthest-corner at 50% 0%,
+      var(--gold) 0%,
+      transparent 50%
+    );
+  }
+}
+
+* {
+  /* border: 1px solid; */
+    scroll-behavior: smooth;
+}
+
+/* Pantalla completa del Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--gold); /* El verde premium (cámbialo por tu color de marca) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Asegura que tape todo el sitio al inicio */
+  transition: opacity 0.6s ease-in-out, visibility 0.6s;
+}
+
+/* Contenedor central */
+.preloader-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animación 1: Texto con Zoom Out */
+.brand-text {
+  font-family: var(--font-sans); /* Tu tipografía corporativa */
+  font-size: 2.5rem;
+  color: #ffffff;
+  letter-spacing: 6px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-wrap: nowrap;
+  opacity: 0;
+  animation: zoomOutText 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Animación 2: Logo que aparece arriba del texto */
+.brand-logo {
+  width: 120px; /* Ajusta según el tamaño de tu logo */
+  height: auto;
+  position: absolute;
+  bottom: 120%; /* Lo posiciona arriba del texto */
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeLogo 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.2s forwards; /* Inicia a los 1.2s */
+}
+
+/* Efecto al ocultarse el preloader */
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* --- KEYFRAMES --- */
+@keyframes zoomOutText {
+  0% {
+    opacity: 0;
+    transform: scale(1.4);
+    letter-spacing: 50%;
+  }
+  30% {
+    color: var(--text);
+    /* letter-spacing: 25%; */
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 5%;
+    color: var(--floor);
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeLogo {
+  0% {
+    /* fill: var(--text); */
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    /* fill: var(--floor); */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  padding: calc(16px + 3.5rem) 0 !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 80% 40% at 50% 0%,
+      rgba(201, 162, 75, 0.05),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #0a0a0c 0%, #0c0d10 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.lineGold {
+  position: relative;
+  height: calc(100% + 50px);
+  border: 1px solid var(--hairline);
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0;
+}
+
+.lineGold:last-child {
+  border: 1px solid var(--hairline);
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.lineGold::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  border: 1px solid var(--gold);
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  /* transform: translateY(-10px); */
+  animation: line 5s linear infinite;
+}
+
+.lineGold:last-child::before {
+  border: 1px solid var(--gold);
+  border-top: 0;
+  border-bottom: 0;
+}
+
+@keyframes line {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(1000%);
+  }
+}
+
+/* El envoltorio invisible que hace el giro principal */
+.orbitWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-wrap: nowrap;
+  background: #0f0;
+  z-index: 20;
+  /* Las animaciones usan la variable --delay que definimos en el HTML */
+  animation: girar 12s linear infinite;
+  animation-delay: var(--delay);
+}
+
+/* Los divs que realmente vas a ver */
+.orbiitItem {
+  position: absolute;
+  width: fit-content;     /* Medida solicitada */
+  height: 30px;     
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  
+  /* Centramos el origen del div antes de desplazarlo */
+  top: -15px;  /* La mitad del height */
+  left: -50px; /* La mitad del width */
+  
+  /* Aplicamos la contra-rotación con el mismo tiempo y delay */
+  animation: contra-girar 12s linear infinite;
+  animation-delay: var(--delay);
+}
+
+/* KEYFRAMES: La magia de la animación */
+
+/* Gira todo el contenedor hacia adelante */
+@keyframes girar {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Desplaza el elemento 180px hacia afuera (el radio) y lo gira hacia atrás */
+@keyframes contra-girar {
+  0% {
+    transform: translateX(140px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(140px) rotate(-360deg);
+  }
+}
+
+@media (max-width:30rem) {
+  .text, .orbiitItem {
+    font-size: 16px
+  }
+  @keyframes contra-girar {
+  0% {
+    transform: translateX(100px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(100px) rotate(-360deg);
+  }
+}
+}

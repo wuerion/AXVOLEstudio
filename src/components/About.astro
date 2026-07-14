@@ -1,0 +1,46 @@
+---
+import ImageAstroComponent from "astro/components/Image.astro";
+import MyFhoto from "../assets/MyPhoto.webp";
+---
+
+<section
+  class=" lg:h-dvh flex flex-col justify-center items-center gap-2.5 border-b border-(--hairline)"
+  id="sobre-nosotros"
+>
+  <div class="w-4/5">
+    <p class="text-(--gold)">SOBRE NOSOTROS</p>
+    <h2 class="text-4xl">NUESTRO EQUIPO</h2>
+  </div>
+
+  <div
+    class="flex flex-col lg:flex-row bg-(--panel) border border-(--hairline) w-4/5 lg:h-4/5 group"
+  >
+    <ImageAstroComponent
+      src={MyFhoto}
+      alt={"Emmanuel R. — Lead Developer & Founder"}
+      class={"lg:w-1/2"}
+    />
+    <div class="relative h-full lg:w-1/2 flex items-center">
+      <div
+        class="group-hover:absolute inset-0 gradient-radial "
+      >
+      </div>
+      <p class="font-mono relative z-10 m-4 text-base md:m-8 w-full">
+        AXVOL nace como un estudio boutique de software enfocado en la obsesión
+        por el código limpio y la dirección de arte. No creamos plantillas
+        genéricas; entendemos que la plataforma digital de tu empresa es su
+        activo más valioso. Unimos la precisión de la ingeniería Full-Stack con
+        un diseño UI/UX milimétrico. El resultado son experiencias digitales de
+        alto rendimiento que imponen autoridad visual, cargan al milisegundo y
+        están optimizadas para convertir visitas en clientes reales. Detrás de
+        cada línea de código y cada píxel en AXVOL estoy yo. Como Lead
+        Developer, me encargo personalmente de programar cada proyecto de
+        principio a fin, garantizando un estándar de calidad sin intermediarios. <br
+        />
+        <span class="text-(--text-muted) font-sans text-base md:text-lg md:text-nowrap"
+          >Emmanuel R. — Lead Developer & Founder</span
+        >
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+---
+import CardService from "./CardService.astro";
+---
+
+<section
+  class=" flex flex-col justify-center items-center gap-2.5 py-4 border-b border-(--hairline)"
+  id="servicios"
+>
+  <div class="w-4/5 h-full xl:h-fit">
+    <div>
+      <p class="text-(--gold)">SERVICIOS</p>
+      <h2 class="text-4xl">MODELOS DE DESARROLLO</h2>
+    </div>
+    <div class=" w-full flex flex-col lg:flex-row lg:border border-(--hairline) lg:bg-(--panel) gap-4 lg:gap-0">
+      <CardService
+        name="Landing Page"
+        description="Ideal para creativos, profesionales independientes o lanzamientos de
+            producto que buscan un impacto inmediato."
+            border="border "
+        li1="Desarrollo One-Page optimizado para conversión"
+        li2="Rendimiento ultra rápido (Optimización Green Score en Core Web Vitals)"
+        li3="Showroom o Galería interactiva avanzada para tus proyectos"
+        li4="Formulario de contacto inteligente integrado con tu correo"
+        li5="Estructura SEO e indexación inicial en Google"
+      />
+      <CardService
+        name="Web Profesional"
+        description="La solución perfecta para empresas en crecimiento que necesitan posicionar su marca, servicios y capturar clientes potenciales."
+        border="border lg:border-x "
+        li1="Todo incluido en Landing Page"
+        li2="Desarrollo Multi-Page estructurado (Hasta 5 secciones independientes y dinámicas)"
+        li3="Arquitectura de rendimiento premium con carga instantánea"
+        li4="Estrategia de conversión avanzada (Llamados a la acción optimizados para captar clientes)"
+        li5="Estructura SEO Avanzado"
+        li6="Integración de analíticas completas"
+      />
+      <CardService
+        name="Web App / E-commerce"
+        description="Sistemas a la medida con lógica compleja, pasarelas de pago o
+            plataformas interactivas de alto rendimiento."
+            border="border "
+        li1="Todo lo incluido en Web Profesional"
+        li2="Desarrollo Full-Stack a la medida"
+        li3="Integración de Base de Datos segura y panel de administración
+              autoadministrable (Dashboard)"
+        li4="Pasarela de pagos en línea (Stripe, Paypal o Mercado Pago)"
+        li5="Sistema de autenticación protegido"
+        li6="Conexión avanzada con APIs externas"
+      />
+    </div>
+  </div>
+</section>

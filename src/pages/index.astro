@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro'
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Services from '../components/Services.astro';
+import Stack from '../components/Stack.astro'
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro'
+---
+<Layout>
+  <div id="preloader">
+  <div class="preloader-content">
+    <div class="brand-text">AXVOL ESTUDIO</div>
+    <img src="/favicon.svg" alt="Logo AXVOL" class="brand-logo" />
+  </div>
+</div>
+	<header>
+		<Navbar />
+		<Hero />
+	</header>
+	<main class="flex flex-col gap-y-16">
+		<About />
+		<Projects />
+		<Services />
+		<Stack />
+		<Contact />
+	</main>
+	<footer>
+		<Footer />
+	</footer>
+</Layout>
+
+<script>
+	// Seleccionamos todos los botones y el textarea
+  const botones = document.querySelectorAll('#btn-start-project');
+  const textarea = document.getElementById('form') as HTMLTextAreaElement;
+
+  botones.forEach(boton => {
+    boton.addEventListener('click', () => {
+      // Obtenemos el nombre del servicio desde el atributo data
+      const servicio = boton.getAttribute('data-service');
+      
+      // Modificamos el valor del textarea
+      if (textarea) {
+        textarea.value = `Hola buen día, quisiera una ${servicio} con: `;
+        
+        // Opcional: Hace scroll suave automático hasta el formulario
+        document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
+        
+        // Opcional: Pone el cursor al final del texto para que el cliente escriba ya
+        textarea.focus();
+      }
+    });
+  });
+</script>

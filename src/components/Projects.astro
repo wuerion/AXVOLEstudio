@@ -1,0 +1,54 @@
+---
+import ImageAstroComponent from "astro/components/Image.astro";
+import CardProjectAstroComponent from "./CardProject.astro";
+import YourColor from "../assets/yourcolor.webp";
+import CafeinaCo from "../assets/cafeina&co.webp";
+import ArqDesing from "../assets/arqdesing.webp";
+---
+
+<section
+  class="flex flex-col justify-center items-center gap-2.5 border-b border-(--hairline)"
+  id="proyectos"
+>
+  <div class="w-4/5">
+    <p class="text-(--gold)">PROYECTOS</p>
+    <h2 class="text-4xl">PROYECTOS DESTACADOS</h2>
+  </div>
+  <div class="w-4/5 lg:border border-(--hairline) flex flex-col gap-4 lg:gap-0 lg:bg-(--panel)">
+    <CardProjectAstroComponent
+      name="YOUR COLOR"
+      category="BELLEZA - APP WEB"
+      description="Your Color es una app web que ofrece herramientas de colorimetría para ayudar a los usuarios a descubrir qué colores complementan con sus características"
+      image={YourColor}
+      link="https://your-color-lilac.vercel.app/"
+      tect1="ASTRO"
+      tect2="REACT"
+      tect3="TAILWIND"
+      tect4="EXPRESS"
+      tect5="NODE"
+    />
+    <CardProjectAstroComponent
+      name="CAFÉINA&CO."
+      category="HOSPITALIDAD - E-COMMERCE"
+      description="Caféina&Co. es una cafetería especializada en elaboración de café de alta gama, utilizando granos tostados artesanalmente"
+      image={CafeinaCo}
+      link="https://cafeina-co-e-commorce-ibwp.vercel.app/"
+      style="lg:flex-row-reverse lg:object-[0_-150px]"
+      tect1="ASTRO"
+      tect2="REACT"
+      tect3="TAILWIND"
+      tect4="EXPRESS"
+      tect5="STRIPE"
+      tect6="NODE"
+    />
+    <CardProjectAstroComponent
+      name="ARQ DESIGN"
+      category="ARQUITECTURA - PORTAFOLIO"
+      description="Es un estudio de arquitectura y diseño que defiende Innovación y funcionalidad. "
+      image={ArqDesing}
+      link="https://arq-desing-studio.vercel.app/"
+      tect1="ASTRO"
+      tect2="TAILWIND"
+    />
+  </div>
+</section>
