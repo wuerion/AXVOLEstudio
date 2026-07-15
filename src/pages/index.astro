@@ -31,27 +31,3 @@ import Footer from '../components/Footer.astro'
 		<Footer />
 	</footer>
 </Layout>
-
-<script>
-	// Seleccionamos todos los botones y el textarea
-  const botones = document.querySelectorAll('#btn-start-project');
-  const textarea = document.getElementById('form') as HTMLTextAreaElement;
-
-  botones.forEach(boton => {
-    boton.addEventListener('click', () => {
-      // Obtenemos el nombre del servicio desde el atributo data
-      const servicio = boton.getAttribute('data-service');
-      
-      // Modificamos el valor del textarea
-      if (textarea) {
-        textarea.value = `Hola buen día, quisiera una ${servicio} con: `;
-        
-        // Opcional: Hace scroll suave automático hasta el formulario
-        document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
-        
-        // Opcional: Pone el cursor al final del texto para que el cliente escriba ya
-        textarea.focus();
-      }
-    });
-  });
-</script>
