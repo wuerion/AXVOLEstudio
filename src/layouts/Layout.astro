@@ -1,21 +1,47 @@
 ---
 import '../styles/global.css'
+
+const title = 'AXVOL | Estudio de desarrollo web y software';
+const description = 'AXVOL diseña y desarrolla landing pages, web apps y e-commerce con enfoque en rendimiento, diseño premium y conversión.';
+const siteUrl = 'https://axvol.com';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#0d0e10" />
+		<meta name="robots" content="index,follow" />
+		<meta name="author" content="AXVOL" />
+		<link rel="canonical" href={siteUrl} />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>AXVOL Estudio</title>
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:site_name" content="AXVOL" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<title>{title}</title>
+		<script type="application/ld+json">
+			{`{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "AXVOL",
+				"url": "${siteUrl}",
+				"description": "${description}",
+				"sameAs": ["https://www.instagram.com/wuerion47/", "https://x.com/WUERION_47"]
+			}`}
+		</script>
 	</head>
-	<body class="bg-(--floor) text-(--text) w-dvw overflow-x-hidden">
+	<body id="top" class="bg-(--floor) text-(--text) w-dvw overflow-x-hidden">
+		<a href="#contenido-principal" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-(--panel) focus:px-4 focus:py-2 focus:rounded focus:border focus:border-(--gold)">Saltar al contenido principal</a>
 		<slot />
 		<script src="../layouts/app.ts"></script>
 	</body>
 </html>
-
-<!-- 6/06/26 -->
