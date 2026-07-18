@@ -5,16 +5,51 @@
   class="h-dvh flex flex-col justify-center items-center gap-2.5 border-b border-(--hairline)"
   id="contacto"
 >
-  <div class="w-4/5 flex flex-col lg:flex-row">
-    <div class="w-full lg:w-1/2">
-      <p class="text-(--gold)">CONTACTO</p>
-      <h2 class="text-4xl">TRABAJEMOS JUNTOS</h2>
-      <p class="text-(--text-muted) my-2 lg:mt-2 md:w-100 font-mono">
+  <div class="w-4/5 flex flex-col lg:flex-row gap-4 lg:gap-0">
+    <div class="w-full lg:w-1/2 flex flex-col justify-around gap-4">
+      <div>
+        <p class="text-(--gold)">CONTACTO</p>
+        <h2 class="text-4xl">TRABAJEMOS JUNTOS</h2>
+      </div>
+      <p class="text-(--text-muted) md:w-100 font-mono">
         Cuéntanos qué producto tienes en mente. Respondemos en menos de 24 horas
         con una fecha para verlo en sala.
       </p>
+      <div class="">
+        <p class="text-(--text-muted)">Email:</p>
+        <a href="mailto:contacto@axvolestudio.com" class=" hover:text-(--gold) uppercase">contacto@axvolestudio.com</a>
+      </div>
+       <div class="flex flex-col md:flex-row gap-4 mt-4">
+        <a
+          href="https://www.instagram.com/wuerion47/"
+          target="_blank"
+          title="instagram"
+          rel="noopener noreferrer"
+          class=" hover:text-(--gold) text-base text-center uppercase border px-4 py-2 rounded-xs"
+          >
+          Instagram
+        </a>
+        <a
+          href="https://twitter.com/WUERION_47"
+          target="_blank"
+          title="X | Twitter"
+          rel="noopener noreferrer"
+          class=" hover:text-(--gold) text-base text-center uppercase border px-4 py-2 rounded-xs"
+        >
+          Twitter
+        </a>
+        <a
+          href="https://portafolio-eta-green.vercel.app/www.linkedin.com/in/wuerion"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Linkedin"
+          class=" hover:text-(--gold) text-base text-center uppercase border px-4 py-2 rounded-xs"
+        >
+          Linikedin
+        </a>
+      </div>
     </div>
-    <div class="w-full lg:w-1/2">
+    <div class="w-full lg:w-1/2 flex flex-col justify-around gap-4">
       <form action="https://api.web3forms.com/submit" method="post">
         <input
           type="hidden"
@@ -24,7 +59,7 @@
          <input type="hidden" name="from_name" value="AXVOL Estudio">
         <!-- IMPORTANTE: Web3Forms lee este campo para saber a quién responder -->
         <input type="hidden" name="redirect" value="http://localhost:4321/" />
-        <div class="flex flex-col lg:px-4">
+        <div class="flex flex-col">
           <label for="nombre">Nombre</label>
           <input
             type="text"
@@ -34,17 +69,18 @@
             class="border-b border-(--hairline) hover:border-(--gold) focus:border-(--gold) pl-2 outline-0"
           />
         </div>
-        <div class="flex flex-col lg:px-4">
+        <div class="flex flex-col">
           <label for="email">Correo</label>
           <input
             type="email"
             name="email"
             id="email"
             required
-            class="border-b border-(--hairline) hover:border-(--gold) focus:border-(--gold) pl-2 outline-0"
+            autocomplete="email"
+            class="border-b border-(--hairline) hover:border-(--gold) focus:border-(--gold) pl-1 user-invalid:border-red-400 outline-0  "
           />
         </div>
-        <div class="flex flex-col lg:px-4">
+        <div class="flex flex-col">
           <label for="message">Cuéntanos sobre tu proyecto</label>
           <textarea
             name="message"
@@ -52,12 +88,12 @@
             cols="20"
             rows="5"
             minlength="20"
-            class="border border-(--hairline) hover:border-(--gold) focus:border-(--gold) pl-2 outline-0"
+            class="border border-(--hairline) hover:border-(--gold) focus:border-(--gold) px-2 outline-0 resize-none mt-0.5"
           ></textarea>
         </div>
         <button
           type="submit"
-          class="px-5 py-2.5 bg-(--gold) text-(--floor) hover:bg-(--gold-dim) cursor-pointer mt-[5%] mx-4"
+          class="px-16 py-2 mt-2 bg-(--gold-dim) text-(--floor) hover:bg-(--gold) cursor-pointer rounded-xs "
           >ENVIAR</button
         >
       </form>
