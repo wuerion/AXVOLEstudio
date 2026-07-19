@@ -1,16 +1,56 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Sansation";
-  src: url("/fonts/Sansation-Light.ttf") format("truetype");
-  font-weight: 300;
+  font-family: "Geist";
+  src: url("/fonts/Geist-Regular.otf") format("opentype");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Google Sans Code";
-  src: url("/fonts/GoogleSansCode-Regular.ttf") format("truetype");
+  font-family: "Geist";
+  src: url("/fonts/Geist-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sansation";
+  src: url("/fonts/Sansation-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -24,8 +64,9 @@
   --gold-dim: rgba(201, 162, 75, 0.35);
   --gold: #c9a24b;
   --text-muted: #8a8d93;
-  --font-sans: "Sansation", "Segoe UI", sans-serif;
-  --font-mono: "Google Sans Code", "Source Code Pro", monospace;
+  --font-sans: "Geist", "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", "Source Code Pro", monospace;
+  --font-serif: "Sansation", "Segoe UI", sans-serif;
 }
 
 html {
@@ -59,35 +100,7 @@ html {
 
 }
 
-/* .navbar {
-   animation: aparecer  linear;
-  animation: fixed 1s;
-  animation-timeline: view();
-  animation-range: cover 0%;
-} */
-
-/* @keyframes fixed {
-  0% {
-    position: static;
-  }
-  100% {
-    position: fixed;
-  }
-} */
-
-@layer utilities {
-  .gradient-radial {
-    opacity: 15%;
-    background: radial-gradient(
-      circle farthest-corner at 50% 0%,
-      var(--gold) 0%,
-      transparent 50%
-    );
-  }
-}
-
 * {
-  /* border: 1px solid; */
     scroll-behavior: smooth;
 }
 
@@ -96,8 +109,8 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   background-color: var(--gold);
   display: flex;
   justify-content: center;
@@ -117,7 +130,7 @@ html {
 
 /* Animación 1: Texto con Zoom Out */
 .brand-text {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: 2.5rem;
   color: #ffffff;
   letter-spacing: 6px;
@@ -236,73 +249,4 @@ body::before {
   to {
     transform: translateY(1000%);
   }
-}
-
-/* El envoltorio invisible que hace el giro principal */
-.orbitWrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  text-wrap: nowrap;
-  background: #0f0;
-  z-index: 20;
-  /* Las animaciones usan la variable --delay que definimos en el HTML */
-  animation: girar 12s linear infinite;
-  animation-delay: var(--delay);
-}
-
-/* Los divs que realmente vas a ver */
-.orbiitItem {
-  position: absolute;
-  width: fit-content;     /* Medida solicitada */
-  height: 30px;     
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2px;
-  
-  /* Centramos el origen del div antes de desplazarlo */
-  top: -15px;  /* La mitad del height */
-  left: -50px; /* La mitad del width */
-  
-  /* Aplicamos la contra-rotación con el mismo tiempo y delay */
-  animation: contra-girar 12s linear infinite;
-  animation-delay: var(--delay);
-}
-
-/* KEYFRAMES: La magia de la animación */
-
-/* Gira todo el contenedor hacia adelante */
-@keyframes girar {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Desplaza el elemento 180px hacia afuera (el radio) y lo gira hacia atrás */
-@keyframes contra-girar {
-  0% {
-    transform: translateX(140px) rotate(0deg);
-  }
-  100% {
-    transform: translateX(140px) rotate(-360deg);
-  }
-}
-
-@media (max-width:30rem) {
-  .text, .orbiitItem {
-    font-size: 16px
-  }
-  @keyframes contra-girar {
-  0% {
-    transform: translateX(100px) rotate(0deg);
-  }
-  100% {
-    transform: translateX(100px) rotate(-360deg);
-  }
-}
 }
