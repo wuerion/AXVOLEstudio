@@ -1,15 +1,20 @@
 ---
+const links = [
+  {name: 'instagram', link: 'https://www.instagram.com/wuerion47/'},
+  {name: 'twitter', link: 'https://www.twitter.com/WUERION_47'},
+  {name: 'linkedin', link: 'https://ww.linkedin.com/in/wuerion'}
+]
 ---
 
 <section
-  class="h-dvh flex flex-col justify-center items-center gap-2.5 border-b border-(--hairline)"
+  class="md:h-dvh flex flex-col justify-center items-center gap-2.5 border-b border-(--hairline)"
   id="contacto"
 >
   <div class="w-4/5 flex flex-col lg:flex-row gap-4 lg:gap-0">
     <div class="w-full lg:w-1/2 flex flex-col justify-around gap-4">
       <div>
-        <p class="text-(--gold)">CONTACTO</p>
-        <h2 class="text-4xl">TRABAJEMOS JUNTOS</h2>
+        <p class="text-(--gold) font-mono text-sm mb-5"> <span class="text-(--gold) mr-0.5">—</span> CONTACTO</p>
+        <h2 class="text-lg md:text-4xl">TRABAJEMOS JUNTOS</h2>
       </div>
       <p class="text-(--text-muted) md:w-100 font-mono">
         Cuéntanos qué producto tienes en mente. Respondemos en menos de 24 horas
@@ -20,7 +25,7 @@
         <a href="mailto:contacto@axvolestudio.com" class=" hover:text-(--gold) uppercase">contacto@axvolestudio.com</a>
       </div>
        <div class="flex flex-col md:flex-row gap-4 mt-4">
-        <a
+        <!-- <a
           href="https://www.instagram.com/wuerion47/"
           target="_blank"
           title="instagram"
@@ -46,7 +51,12 @@
           class=" hover:text-(--gold) text-base text-center uppercase border px-4 py-2 rounded-xs"
         >
           Linikedin
-        </a>
+        </a> -->
+        {
+          links.map((link,i) => (
+            <a href={link.link} target="_blank" rel="noopener noreferrer" title={link.name} class="text-(--text-muted) border border-(--hairline) text-center uppercase px-4 py-2 rounded-xs hover:text-(--gold) hover:border-(--gold)">{link.name}</a>
+          ))
+        }
       </div>
     </div>
     <div class="w-full lg:w-1/2 flex flex-col justify-around gap-4">

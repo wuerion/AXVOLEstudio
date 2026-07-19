@@ -1,57 +1,37 @@
+---
+const stack = [
+  {name: 'frontend', tec: ['Astro', 'React', 'Tailwind CSS', 'JavaScript']},
+  {name: 'backend', tec: ['Node.js', 'Express', 'MySQL', 'Strpe API']}
+]
+---
+
 <section
   class=" flex flex-col justify-center items-center gap-2.5 py-4 border-b border-(--hairline)"
   id="stack"
 >
   <div class="w-4/5">
     <div>
-      <p class="text-(--gold)">STACK</p>
-      <h2 class="text-4xl">TECNOLOGÍAS QUE USAMOS</h2>
+      <p class="text-(--gold) font-mono mb-5 text-sm"><span class="text-(--gold) mr-0.5">—</span> STACK</p>
+      <h2 class="text-lg md:text-4xl">TECNOLOGÍAS QUE USAMOS</h2>
     </div>
-    <div class="relative w-full h-full md:h-250 lg:h-150 flex flex-col lg:flex-row justify-center items-center p-4 gap-0 md:gap-16 lg:gap-4">
-    <div class=" relative flex justify-center items-center w-full md:w-1/2 h-96">
-      <div class="absolute bg-radial from-0% from-(--gold) to-60% to-transparent w-full h-full opacity-20"></div>
-        <p class="text font-sans text-3xl">FRONTEND</p>
-        <div class="orbitWrapper" style="--delay:0s;">
-          <p class="orbiitItem border border-(--hairline) px-5 py-2.5">HTML</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-[400px] gap-5 justify-around mt-5">
+    {
+      stack.map((data, i) => (
+        <div class="mt-4">
+          <p class="uppercase border-b-2 border-(--hairline) mb-4 text-sm text-(--text-muted)">{data.name}</p>
+          <ul class="flex flex-col justify-around h-full px-2">
+            {data.tec.map((tects, i) => (
+              <li class="border-b-2 border-(--hairline) pb-2 pl-2 group overflow-hidden ">
+                <span class="inline-block relative text-(--text-muted) hover:text-(--text) text-xl md:text-4xl w-full group-hover:translate-x-4 group-hover:ease-in duration-150 ">
+                  <span class="text-(--gold) absolute -translate-x-16 group-hover:-translate-x-6 ">></span>
+                  {tects}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div class="orbitWrapper" style="--delay:-2s;">
-          <p class="orbiitItem border border-(--hairline) px-5 py-2.5">ASTRO</p>
-        </div>
-        <div class="orbitWrapper" style="--delay:-4s;">
-          <p class="orbiitItem border border-(--hairline) px-5 py-2.5">CSS</p>
-        </div>
-        <div class="orbitWrapper" style="--delay:-6s;">
-          <p class="orbiitItem border border-(--hairline) px-5 py-2.5">REACT</p>
-        </div>
-        <div class="orbitWrapper" style="--delay:-8s;">
-          <p class="orbiitItem border border-(--hairline) px-5 py-2.5">JAVASCRIPT</p>
-        </div>
-        <div class="orbitWrapper" style="--delay:-10s;">
-          <p class="orbiitItem border border-(--hairline) px-5 py-2.5">TAILWIND</p>
-        </div>
-    </div>
-    <div class=" relative flex justify-center items-center w-full md:w-1/2 h-96">
-      <div class="absolute bg-radial from-0% from-(--gold) to-60% to-transparent w-full h-full opacity-20"></div>
-        <p class="text font-sans text-3xl">BACKEND</p>
-        <div class="orbitWrapper" style="--delay:0s;">
-          <p class="orbiitItem border border-(--hairline) px-2.5 md:px-5 py-2.5">EXPRESS</p>
-        </div>
-        <div class="orbitWrapper" style="--delay:-2s;">
-          <p class="orbiitItem border border-(--hairline) px-2.5 md:px-5 py-2.5">NODE</p>
-        </div>
-        <div class="orbitWrapper" style="--delay:-4s;">
-          <p class="orbiitItem border border-(--hairline) px-2.5 md:px-5 py-2.5">STRIPE</p>
-        </div>
-        <div class="orbitWrapper" style="--delay:-6s;">
-          <p class="orbiitItem border border-(--hairline) px-2.5 md:px-5 py-2.5">APIs</p>
-        </div>
-        <div class="orbitWrapper" style="--delay:-8s;">
-          <p class="orbiitItem border border-(--hairline) px-2.5 md:px-5 py-2.5">JAVASCRIPT</p>
-        </div>
-        <div class="orbitWrapper" style="--delay:-10s;">
-          <p class="orbiitItem border border-(--hairline) px-2.5 md:px-5 py-2.5">MYSQL</p>
-        </div>
-    </div>
-    </div>
+      ))
+    }
+  </div>
   </div>
 </section>

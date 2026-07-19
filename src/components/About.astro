@@ -1,46 +1,48 @@
 ---
 import ImageAstroComponent from "astro/components/Image.astro";
-import MyFhoto from "../assets/MyPhoto.webp";
+import MyPhoto from "../assets/my.webp";
 ---
 
 <section
   class=" lg:h-dvh flex flex-col justify-center items-center gap-2.5 border-b border-(--hairline)"
-  id="sobre-nosotros"
->
-  <div class="w-4/5">
-    <p class="text-(--gold)">SOBRE NOSOTROS</p>
-    <h2 class="text-4xl">NUESTRO EQUIPO</h2>
-  </div>
-
-  <div
-    class="flex flex-col lg:flex-row bg-(--panel) border border-(--hairline) w-4/5 lg:h-4/5 group"
-  >
-    <ImageAstroComponent
-      src={MyFhoto}
-      alt={"Emmanuel R. — Lead Developer & Founder"}
-      class={"lg:w-1/2"}
-    />
-    <div class="relative h-full lg:w-1/2 flex items-center">
-      <div
-        class="group-hover:absolute inset-0 gradient-radial "
-      >
+  id="sobre-nosotros">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] lg:grid-rows-[90%] gap-10 h-[90%] w-4/5 place-content-center">
+      <div class="h-full relative">
+        <ImageAstroComponent src={MyPhoto} alt={'Emmanuel R. - Lead Developer & Founder'} class={"h-full"}/>
+        <div class="bg-linear-180 from-0% from-transparent to-90% to-black/90 absolute bottom-0 h-full w-full">
+          <p class="absolute left-5 bottom-5 text-base font-sans">Emmanuel R. <br><span class="font-mono text-sm font-light text-(--text-muted)">LEAD DEVELOPER & FOUNDER</span></p>
+        </div>
       </div>
-      <p class="font-mono relative z-10 m-4 text-base md:m-8 w-full">
-        AXVOL nace como un estudio boutique de software enfocado en la obsesión
-        por el código limpio y la dirección de arte. No creamos plantillas
-        genéricas; entendemos que la plataforma digital de tu empresa es su
-        activo más valioso. Unimos la precisión de la ingeniería Full-Stack con
-        un diseño UI/UX milimétrico. El resultado son experiencias digitales de
-        alto rendimiento que imponen autoridad visual, cargan al milisegundo y
-        están optimizadas para convertir visitas en clientes reales. Detrás de
-        cada línea de código y cada píxel en AXVOL estoy yo. Como Lead
-        Developer, me encargo personalmente de programar cada proyecto de
-        principio a fin, garantizando un estándar de calidad sin intermediarios. <br
-        />
-        <span class="text-(--text-muted) font-sans text-base md:text-lg md:text-nowrap"
-          >Emmanuel R. — Lead Developer & Founder</span
-        >
-      </p>
+      <div class=" flex flex-col w-full lg:w-3/4 px-4 justify-center gap-5 relative h-full">
+        <p class="text-(--gold) font-mono font-normal text-sm lg:absolute top-5"> <span class="text-(--gold) mr-0.5">—</span> SOBRE NOSOTROS</p>
+        <h2 class="text-lg lg:text-2xl 2xl:text-4xl font-sans font-bold ">No construimos plantillas. <br> Construimos <span class="text-(--gold)">autoridad visual.</span></h2>
+        <p class="text-(--text-muted)">AXVOL nace como un estudio boutique enfocado en la obsesión por el código limpio y la dirección de arte. Unimos ingeniería Full-Stack con diseño UI/UX milimétrico — sin intermediarios entre la idea y el resultado.</p>
+        <div class="grid grid-cols-3 border-t border-(--hairline)">
+          <div class="p-0.5 md:p-2">
+            <p class="font-sans text-xl font-bold">2026</p>
+            <p class="text-(--text-muted) text-xs md:text-sm">FUNDADO</p>
+          </div>
+          <div class="border-x border-(--hairline) p-0.5 md:p-2">
+            <p class="font-sans text-xl font-bold">5+</p>
+            <p class="text-(--text-muted) text-xs md:text-sm">PROYECTOS</p>
+          </div>
+          <div class="p-0.5 md:p-2">
+            <p class="font-sans text-xl font-bold">&lt1s</p>
+            <p class="text-(--text-muted) text-xs md:text-sm">CARGA PROM.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="h-2 w-2 bg-(--gold) rounded-full "></div>
+          <div class="flex flex-col">
+            <p>Emmanuel R.</p>
+            <p class="text-(--text-muted) text-sm">Programo cada proyecto de principio a fin.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  <!-- </div> -->
 </section>
+
+<style>
+
+</style>

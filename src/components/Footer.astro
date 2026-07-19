@@ -1,31 +1,27 @@
-
+---
+const currentYear = new Date().getFullYear()
+const linkNav = [
+  {name: 'sobre nosotros', link: '#sobre-nosotros'},
+  {name: 'proyectos', link: "#proyectos"},
+  {name: 'servicios', link: '#servicios'},
+  {name: 'stack', link: '#stack'}
+]
+---
 
 <footer class="flex flex-col items-center gap-4 p-4">
-  <div class="grid grid-cols-1 w-4/5 md:justify-items-center py-16 gap-4 md:grid-cols-4 border-b border-(--hairline)">
+  <div class="grid grid-cols-1 w-4/5 lg:justify-items-center py-16 gap-4 lg:grid-cols-4 border-b border-(--hairline)">
     <div>
-      <p class="text-4xl tracking-[10%]">AXVOL <span class="text-(--gold)">Estudio.</span></p>
-      <p class="text-lg mt-1">Diseñamos para el estándar. Construimos para el impacto.</p>
+      <p class="text-4xl tracking-[10%] font-serif">AXVOL <span class="text-(--gold)">Estudio.</span></p>
+      <p class="text-lg mt-1 font-mono">Diseñamos para el estándar. Construimos para el impacto.</p>
     </div>
     <div>
       <div class="flex flex-col justify-around gap-2 md:gap-4">
         <p class="text-(--gold) text-sm -mb-2">Navegación:</p>
-        <a
-          href="#sobre-nosotros"
-          class="text-sm md:text-base font-sans text-(--text-muted) hover:text-(--gold)"
-          >SOBRE NOSOTROS</a
-        >
-        <a
-          href="#proyectos"
-          class="text-sm md:text-base font-sans text-(--text-muted) hover:text-(--gold)">PROYECTOS</a
-        >
-        <a
-          href="#servicios"
-          class="text-sm md:text-base font-sans text-(--text-muted) hover:text-(--gold)">SERVICIOS</a
-        >
-        <a
-          href="#stack"
-          class="text-sm md:text-base font-sans text-(--text-muted) hover:text-(--gold)">STACK</a
-        >
+          {
+            linkNav.map((link, i) => (
+            <a href={link.link} class="text-base font-mono text-(--text-muted) hover:text-(--gold) uppercase">{link.name}</a>
+            ))
+          }
       </div>
     </div>
       <div class="flex flex-col gap-2 md:gap-4">
@@ -35,7 +31,7 @@
           target="_blank"
           title="instagram"
           rel="noopener noreferrer"
-          class="text-(--text-muted) hover:text-(--gold) text-base uppercase"
+          class="text-(--text-muted) hover:text-(--gold) text-base font-mono uppercase"
           >
           Instagram
         </a>
@@ -44,7 +40,7 @@
           target="_blank"
           title="X | Twitter"
           rel="noopener noreferrer"
-          class="text-(--text-muted) hover:text-(--gold) text-base uppercase"
+          class="text-(--text-muted) hover:text-(--gold) text-base font-mono uppercase"
         >
           Twitter
         </a>
@@ -53,17 +49,17 @@
           target="_blank"
           rel="noopener noreferrer"
           title="Linkedin"
-          class="text-(--text-muted) hover:text-(--gold) text-base uppercase"
+          class="text-(--text-muted) hover:text-(--gold) text-base font-mono uppercase"
         >
           Linikedin
         </a>
       </div>
     <div>
       <p class="text-(--gold) text-sm">Contacto:</p>
-      <a href="mailto:contacto@axvolestudio.com" class="text-(--text-muted) hover:text-(--gold) uppercase">contacto@axvolestudio.com</a>
+      <a href="mailto:contacto@axvolestudio.com" class="text-(--text-muted) font-mono hover:text-(--gold) uppercase">contacto@axvolestudio.com</a>
     </div>
   </div>
   <p class="text-(--text-muted) text-center w-full ">
-    © 2026 AXVOL Estudio. Todos los derechos reservados
+    &copy; {currentYear} AXVOL Estudio. Todos los derechos reservados
   </p>
 </footer>

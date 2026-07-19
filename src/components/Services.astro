@@ -1,5 +1,9 @@
 ---
-import CardService from "./CardService.astro";
+const service = [
+  {name: 'Landing Page', description: 'Ideal para creativos y lanzamientos que buscan un inpacto inmediato', list: ['One-Page optimizada para conversión', 'Rendimiento ultra rápido', 'Galeria interactiva de proyectos', 'Formulario inteligente integrado', 'SEO base e indezación']},
+  {name: 'Web Profecional', description: 'Para empresas en crecimiento que necesitan posicionar marca y captar clientes', list: ['Todo lo de Landin Page', 'Hasta 5 secciones dinámicas', 'Arquitectura de carga instántanea', 'CTAs optimizados a conversión', 'SEO avanzado + analíticas'], recomend: 'bg-(--panel) border-x border-(--hairline)'},
+  {name: 'Web APP / E-ecommerce', description: 'Sistemas a la medida con lógica compleja y pagos en linea', list: ['Todo lo de Web Profecional', 'Full-Stack a la medida', 'Dashboard autoadministrable', 'Stripe, Paypla o Mercado Pago', 'Autenticación + APIs externas']}
+]
 ---
 
 <section
@@ -8,45 +12,28 @@ import CardService from "./CardService.astro";
 >
   <div class="w-4/5 h-full xl:h-fit">
     <div>
-      <p class="text-(--gold)">SERVICIOS</p>
-      <h2 class="text-4xl">MODELOS DE DESARROLLO</h2>
+      <p class="text-(--gold) font-mono mb-5 text-sm"><span class="text-(--gold) mr-0.5">—</span> SERVICIOS</p>
+      <h2 class="text-lx md:text-4xl">MODELOS DE DESARROLLO</h2>
     </div>
-    <div class=" w-full flex flex-col lg:flex-row lg:border border-(--hairline) lg:bg-(--panel) gap-4 lg:gap-0">
-      <CardService
-        name="Landing Page"
-        description="Ideal para creativos, profesionales independientes o lanzamientos de
-            producto que buscan un impacto inmediato."
-            border="border "
-        li1="Desarrollo One-Page optimizado para conversión"
-        li2="Rendimiento ultra rápido (Optimización Green Score en Core Web Vitals)"
-        li3="Showroom o Galería interactiva avanzada para tus proyectos"
-        li4="Formulario de contacto inteligente integrado con tu correo"
-        li5="Estructura SEO e indexación inicial en Google"
-      />
-      <CardService
-        name="Web Profesional"
-        description="La solución perfecta para empresas en crecimiento que necesitan posicionar su marca, servicios y capturar clientes potenciales."
-        border="border lg:border-x "
-        li1="Todo incluido en Landing Page"
-        li2="Desarrollo Multi-Page estructurado (Hasta 5 secciones independientes y dinámicas)"
-        li3="Arquitectura de rendimiento premium con carga instantánea"
-        li4="Estrategia de conversión avanzada (Llamados a la acción optimizados para captar clientes)"
-        li5="Estructura SEO Avanzado"
-        li6="Integración de analíticas completas"
-      />
-      <CardService
-        name="Web App / E-commerce"
-        description="Sistemas a la medida con lógica compleja, pasarelas de pago o
-            plataformas interactivas de alto rendimiento."
-            border="border "
-        li1="Todo lo incluido en Web Profesional"
-        li2="Desarrollo Full-Stack a la medida"
-        li3="Integración de Base de Datos segura y panel de administración
-              autoadministrable (Dashboard)"
-        li4="Pasarela de pagos en línea (Stripe, Paypal o Mercado Pago)"
-        li5="Sistema de autenticación protegido"
-        li6="Conexión avanzada con APIs externas"
-      />
-    </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 mt-5 lg:grid-rows-[500px] w-full border border-(--hairline)">
+        {
+          service.map((data, i ) => (
+            <div class={`relative flex flex-col justify-around h-fits p-8 ${data.recomend ?? ''}`}>
+              {data.recomend && <div class="bg-(--gold) text-mono px-4 py-1 text-xs text-(--floor) w-fit absolute -top-2 ">RECOMENDADO</div>}
+              <div class="">
+                <h3 class="text-2xl font-sans">{data.name}</h3>
+                <p class="text-(--text-muted)">{data.description}</p>
+              </div>
+              <ul class="flex flex-col justify-around gap-2">
+                {data.list.map((li, i) => (
+                  <li class="text-(--text-muted)"><span class="text-(--gold) mr-0.5">—</span>{li}</li>
+                  <hr class="w-full border border-(--hairline)"/>
+                ))}
+              </ul>
+              <button id="btn-start-project" data-service={data.name} class="font-mono w-fit border-b border-(--hairline) cursor-pointer hover:text-(--gold) hover:border-(--gold) after:content-['_→']">Iniciar Proyecto</button>
+            </div>
+            ))
+          }
+      </div>
   </div>
 </section>

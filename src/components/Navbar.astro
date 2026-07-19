@@ -1,34 +1,29 @@
+---
+const linkNav = [
+  {name: 'sobre nosotros', link: '#sobre-nosotros'},
+  {name: 'proyectos', link: '#proyectos'},
+  {name: 'servicios', link: '#servicios'},
+  {name: 'stack',  link: '#stack'}
+]
+---
+
 <nav
   class="border-b border-(--hairline) h-14 w-full fixed flex lg:flex items-center justify-between px-4 lg:px-8 bg-(--floor) z-50"
   aria-label="Navegación principal"
 >
   <a href="#top" class="focus:outline-none focus:ring-2 focus:ring-(--gold) focus:ring-offset-2 focus:ring-offset-(--floor)" aria-label="Ir al inicio de AXVOL">
-    <p class="font-sans md:text-2xl lg:text-4xl tracking-[10%] text-nowrap">
+    <p class="font-serif md:text-2xl lg:text-4xl tracking-[10%] text-nowrap">
       AXVOL <span class="text-(--gold)">.</span>
     </p>
   </a>
 
   <div class="hidden lg:flex w-1/2 items-center justify-around">
-    <a
-      href="#sobre-nosotros"
-      class="font-sans text-sm lg:text-base text-(--text-muted) hover:text-(--gold)"
-      >SOBRE NOSOTROS</a
-    >
-    <a
-      href="#proyectos"
-      class="font-sans text-sm lg:text-base text-(--text-muted) hover:text-(--gold)"
-      >PROYECTOS</a
-    >
-    <a
-      href="#servicios"
-      class="font-sans text-sm lg:text-base text-(--text-muted) hover:text-(--gold)"
-      >SERVICIOS</a
-    >
-    <a
-      href="#stack"
-      class="font-sans text-sm lg:text-base text-(--text-muted) hover:text-(--gold)"
-      >STACK</a
-    >
+    
+    {
+      linkNav.map((link, i) => (
+        <a href={link.link} class="font-sans text-sm lg:text-base text-(--text-muted) hover:text-(--gold) uppercase">{link.name}</a>
+      ))
+    }
   </div>
 
   <a
@@ -76,31 +71,11 @@
     </button>
   </div>
   <nav class="flex flex-col gap-4 p-4">
-    <a
-      href="#sobre-nosotros"
-      class="font-sans text-base text-(--text-muted)"
-      >SOBRE NOSOTROS</a
-    >
-    <a
-      href="#proyectos"
-      class="font-sans text-base text-(--text-muted)"
-      >PROYECTOS</a
-    >
-    <a
-      href="#servicios"
-      class="font-sans text-base text-(--text-muted)"
-      >SERVICIOS</a
-    >
-    <a
-      href="#stack"
-      class="font-sans text-base text-(--text-muted)"
-      >STACK</a
-    >
-    <a
-      href="#contacto"
-      class="font-sans text-base text-(--text-muted)"
-      >INICIAR PROYECTO</a
-    >
+  {
+    linkNav.map((link,i) => (
+      <a href={link.link} class="font-sans text-base text-(--text-muted) uppercase">{link.name}</a>
+    ))
+  }
   </nav>
 </aside>
 

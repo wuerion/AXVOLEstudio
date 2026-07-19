@@ -1,54 +1,95 @@
 ---
 import ImageAstroComponent from "astro/components/Image.astro";
-import CardProjectAstroComponent from "./CardProject.astro";
 import YourColor from "../assets/yourcolor.webp";
-import CafeinaCo from "../assets/cafeina&co.webp";
+import CafeinaAndCo from "../assets/cafeina&co.webp";
 import ArqDesing from "../assets/arqdesing.webp";
+
+const proyect = [
+  {
+    link: "https://yourcolor.axvolestudio.com",
+    img: YourColor,
+    name: "Your Color",
+    tag: "belleza - web app",
+    description:
+      "Herramientas de colorimetría para ayudar a los usuarios a descubrir qué colores complementan sus características.",
+    stack: ["astro", "react", "tailwind", "express", "node"],
+    span: "md:col-span-2 ",
+  },
+  {
+    link: "https://cafeinayco.axvolestudio.com",
+    img: CafeinaAndCo,
+    name: "Cafeina&Co",
+    tag: "hospitalidad - e-commerce",
+    description:
+      "Cafería especializada en café alta gama, tostado artezanalmente.",
+    stack: ["react", "tailwind", "express", "stripe", "node"],
+  },
+  {
+    link: "https://arqdesing.axvolestudio.com",
+    img: ArqDesing,
+    name: "ArgDesing",
+    tag: "arquitectura - portafolio",
+    description:
+      "Estudio de arquitectura que definede la incovación y funcionalidad.",
+    stack: ["astro", "tailwind"],
+  },
+];
 ---
 
 <section
-  class="flex flex-col justify-center items-center gap-2.5 border-b border-(--hairline)"
+  class="flex flex-col justify-center items-center gap-2.5 border-b border-(--hairline) h-[90%]"
   id="proyectos"
 >
-  <div class="w-4/5">
-    <p class="text-(--gold)">PROYECTOS</p>
-    <h2 class="text-4xl">PROYECTOS DESTACADOS</h2>
+  <div class="w-4/5 flex flex-col md:flex-row justify-between md:items-center">
+    <div>
+      <p class="text-(--gold) mb-5 font-mono font-normal text-sm">
+        <span class="text-(--gold) mr-0.5">—</span> PROYECTOS
+      </p>
+      <h2 class="text-lg md:text-3xl lg:text-4xl">PROYECTOS DESTACADOS</h2>
+    </div>
+    <p class="text-(--text-muted) md:w-1/3">
+      Una muestra de lo último — landing page, e-commerce y web apps a la medida
+    </p>
   </div>
-  <div class="w-4/5 lg:border border-(--hairline) flex flex-col gap-4 lg:gap-0 lg:bg-(--panel)">
-    <CardProjectAstroComponent
-      name="YOUR COLOR"
-      category="BELLEZA - APP WEB"
-      description="Your Color es una app web que ofrece herramientas de colorimetría para ayudar a los usuarios a descubrir qué colores complementan con sus características"
-      image={YourColor}
-      link="https://your-color-lilac.vercel.app/"
-      tect1="ASTRO"
-      tect2="REACT"
-      tect3="TAILWIND"
-      tect4="EXPRESS"
-      tect5="NODE"
-    />
-    <CardProjectAstroComponent
-      name="CAFÉINA&CO."
-      category="HOSPITALIDAD - E-COMMERCE"
-      description="Caféina&Co. es una cafetería especializada en elaboración de café de alta gama, utilizando granos tostados artesanalmente"
-      image={CafeinaCo}
-      link="https://cafeina-co-e-commorce-ibwp.vercel.app/"
-      style="lg:flex-row-reverse lg:object-[0_-150px]"
-      tect1="ASTRO"
-      tect2="REACT"
-      tect3="TAILWIND"
-      tect4="EXPRESS"
-      tect5="STRIPE"
-      tect6="NODE"
-    />
-    <CardProjectAstroComponent
-      name="ARQ DESIGN"
-      category="ARQUITECTURA - PORTAFOLIO"
-      description="Es un estudio de arquitectura y diseño que defiende Innovación y funcionalidad. "
-      image={ArqDesing}
-      link="https://arq-desing-studio.vercel.app/"
-      tect1="ASTRO"
-      tect2="TAILWIND"
-    />
+  <div
+    class="w-4/5 grid grid-cols-1 md:grid-cols-2 md:grid-rows-[2fr, 200px] justify-center gap-5"
+  >
+    {
+      proyect.map((data, i) => (
+        <a
+          href={data.link}
+          target="_blank"
+          title={data.name}
+          rel="noopener noreferrer"
+          class={`flex flex-col group relative overflow-hidden rounded-sm ${data.span ?? ""}`}
+        >
+          <ImageAstroComponent
+            src={data.img}
+            alt={data.name}
+            class={"w-full h-full aspect-square md:aspect-auto"}
+          />
+          <div class="w-full flex flex-col items-end px-4 absolute -translate-y-10 opacity-0 group-hover:translate-y-3 group-hover:opacity-100 group-hover:ease-in duration-300">
+            <p class="text-(--text-muted)">Trafico</p>
+            <p class="text-(--gold)">+5 visitas</p>
+          </div>
+          <div class="absolute bottom-0 bg-linear-180 from-0% from-transparent to-90% to-black/80 w-full h-full">
+            <div class="absolute bottom-5 w-full flex flex-col justify-around h-40 px-4">
+              <p class="text-(--gold) text-sm font-mono uppercase">
+                {data.tag}
+              </p>
+              <h3 class="text-lg font-sans">{data.name}</h3>
+              <p class="text-(--text-muted) md:translate-y-10 md:opacity-0 md:group-hover:-translate-y-1 md:group-hover:opacity-100 md:group-hover:ease-in duration-300">
+                {data.description}
+              </p>
+              <ul class="list-disc marker:text-(--gold) list-inside flex gap-4">
+                {data.stack.map((tect, i) => (
+                  <li class="text-(--text-muted) text-xs md:text-sm uppercase">{tect}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </a>
+      ))
+    }
   </div>
 </section>
