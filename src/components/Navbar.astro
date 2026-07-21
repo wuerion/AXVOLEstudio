@@ -3,7 +3,8 @@ const linkNav = [
   {name: 'sobre nosotros', link: '#sobre-nosotros'},
   {name: 'proyectos', link: '#proyectos'},
   {name: 'servicios', link: '#servicios'},
-  {name: 'stack',  link: '#stack'}
+  {name: 'stack',  link: '#stack'},
+  {name: 'contacto', link: '#contacto', style: 'inline-flex lg:hidden'}
 ]
 ---
 
@@ -73,7 +74,7 @@ const linkNav = [
   <nav class="flex flex-col gap-4 p-4">
   {
     linkNav.map((link,i) => (
-      <a href={link.link} class="font-sans text-base text-(--text-muted) uppercase">{link.name}</a>
+      <a href={link.link} class={`font-sans text-base text-(--text-muted) uppercase ${link.style ?? ''}`}>{link.name}</a>
     ))
   }
   </nav>
